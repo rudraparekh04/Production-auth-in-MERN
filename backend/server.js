@@ -57,7 +57,8 @@ const authLimiter = rateLimit({
 });
 
 // Routes
-app.use('/api/auth', authLimiter, authRoutes);
+app.use('/api/auth', (req,res,next)=>{ if (req.method === "OPTIONS") return next();
+  return authLimiter(req, res, next)},authRoutes);
 app.use('/api/user', userRoutes);
 
 // Health check
