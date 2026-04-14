@@ -2,6 +2,9 @@ const errorHandler = (err, req, res, next) => {
   let statusCode = err.statusCode || 500;
   let message = err.message || 'Internal Server Error';
 
+  res.header("Access-Control-Allow-Origin", "https://production-auth-in-mern.vercel.app");
+  res.header("Access-Control-Allow-Credentials", "true");
+
   // Mongoose duplicate key error
   if (err.code === 11000) {
     statusCode = 409;
