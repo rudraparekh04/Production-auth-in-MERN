@@ -14,7 +14,7 @@ const { errorHandler } = require('./middleware/error.middleware');
 const app = express();
 app.use((req, res, next) => {
   if (req.method === "OPTIONS") {
-    res.header("Access-Control-Allow-Origin", "https://production-auth-in-mern.vercel.app");
+    res.header("Access-Control-Allow-Origin",process.env.CLIENT_URL);
     res.header("Access-Control-Allow-Credentials", "true");
     res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,PATCH,OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type,Authorization");
