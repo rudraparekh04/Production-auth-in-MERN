@@ -79,7 +79,7 @@ privateApi.interceptors.response.use(
 
       try {
         // Attempt to refresh using HttpOnly cookie
-        const response = await publicApi.post('/api/auth/refresh');
+        const response = await publicApi.post('/auth/refresh');
         const newAccessToken = response.data.accessToken;
 
         setAccessToken(newAccessToken);
