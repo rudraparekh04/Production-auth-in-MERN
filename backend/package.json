@@ -4,6 +4,7 @@
   "description": "MERN Auth Backend with dual-token system",
   "main": "server.js",
   "scripts": {
+    "build": "npm run build",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
