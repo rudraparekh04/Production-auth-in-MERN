@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
 
     try {
       dispatch({ type: 'AUTH_LOADING' });
-      const response = await publicApi.post('/auth/refresh');
+      const response = await publicApi.post('/api/auth/refresh');
       setAccessToken(response.data.accessToken);
       dispatch({ type: 'AUTH_SUCCESS', payload: response.data.user });
     } catch {
