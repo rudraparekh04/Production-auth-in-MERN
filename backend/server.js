@@ -28,6 +28,10 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+app.options("*", cors({
+  origin: process.env.CLIENT_URL,
+  credentials: true
+}));
 
 // Body parsing
 app.use(express.json({ limit: '10mb' }));
