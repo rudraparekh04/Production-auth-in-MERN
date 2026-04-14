@@ -38,7 +38,7 @@ const register = async (req, res, next) => {
     // Create user
     const user = await User.create({
       name: name.trim(),
-      email: email.toLowerCase(),
+      email: email?.toLowerCase(),
       password,
       avatar: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name)}`,
     });
