@@ -14,7 +14,10 @@ const { errorHandler } = require('./middleware/error.middleware');
 const app = express();
 
 // Security middleware
-app.use(helmet());
+app.use(helmet({
+  crossOriginResourcePolicy: false
+
+}));
 app.use(morgan('dev'));
 app.use(cookieParser());
 
