@@ -26,10 +26,14 @@ app.use(helmet({
 }));
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use((req, res, next) => {
-  console.log("👉", req.method, req.url);
-  next();
+app.use((err, req, res, next) => {
+  console.error("🔥 ERROR:", err.stack);
+  next(err);
 });
+// app.use((req, res, next) => {
+//   console.log("👉", req.method, req.url);
+//   next();
+// });
 
 // CORS Configuration
 // app.options("*", (req, res) => {
