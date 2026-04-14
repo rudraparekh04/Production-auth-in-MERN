@@ -26,6 +26,10 @@ app.use(helmet({
 }));
 app.use(morgan('dev'));
 app.use(cookieParser());
+app.use((req, res, next) => {
+  console.log("👉", req.method, req.url);
+  next();
+});
 
 // CORS Configuration
 // app.options("*", (req, res) => {
