@@ -88,7 +88,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     dispatch({ type: 'AUTH_LOADING' });
     try {
-      const response = await publicApi.post('/auth/login', { email, password });
+      const response = await publicApi.post('/api/auth/login', { email, password });
       setAccessToken(response.data.accessToken);
       dispatch({ type: 'AUTH_SUCCESS', payload: response.data.user });
       return { success: true };
